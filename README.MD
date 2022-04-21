@@ -6,17 +6,28 @@ This project was generated with [superplate](https://github.com/pankod/superplat
 
 ## Getting Started
 
-Just after you create a new firebase project from [console.firebase.google.com](https://console.firebase.google.com), register a new web app.
+### Setup Local Environment
 
-Create a new file called `.env` at the root of your project (where `package.json` is) and copy `.env.example` file into it. Then fill the `.env` file according to your firebase config except `REACT_APP_FIREBASE_DATABASE_URL`. After that, go back to the firebase console, click `Realtime Database` at the left and create a database. Get the database-url and set the `REACT_APP_FIREBASE_DATABASE_URL` with it.
+Just after you create a new Firebase project from [console.firebase.google.com](https://console.firebase.google.com), register a new web app.
+
+Create a new file called `.env` at the root of your project (where `package.json` is) and copy `.env.example` file into it. Then fill the `.env` file according to your firebase config except `REACT_APP_FIREBASE_DATABASE_URL`. After that, go back to the Firebase Console, click `Realtime Database` at the left and create a database. Get the database-url and set the `REACT_APP_FIREBASE_DATABASE_URL` with it. Then run `npm i`.
+
+### Setup Database
+
+We will use the [refine fake rest api](https://api.fake-rest.refine.dev/)'s `posts` and `categories` parts for filling the database for a first time.
+
+Download [/posts.json](https://api.fake-rest.refine.dev/posts) and [/categories.json](https://api.fake-rest.refine.dev/categories) files and [firebasify](https://github.com/ketenburhan/firebasify) them by running:
+```sh
+$ npx firebasify posts.json posts-new.json -r /
+$ npx firebasify categories.json categories-new.json -r /
 ```
-DATABASE URL:
+After that, add a object named `posts` in your database and import the `posts-new.json` into `posts`. Do the same things for `categories` too.
 
-DATABASE_NAME.firebaseio.com (for databases in us-central1)
-DATABASE_NAME.REGION.firebasedatabase.app (for databases in all other locations)
-```
+Be sure your database rules gives read and write access to your app.
 
-Finally, run your app with `npm run dev` command.
+### Run App
+
+Finally, run app with `npm run dev` command.
 
 ## Available Scripts
 

@@ -18,8 +18,8 @@ We will use the [refine fake rest api](https://api.fake-rest.refine.dev/)'s `pos
 
 Download [/posts.json](https://api.fake-rest.refine.dev/posts) and [/categories.json](https://api.fake-rest.refine.dev/categories) files and [firebasify](https://github.com/ketenburhan/firebasify) them by running:
 ```sh
-$ npx firebasify posts.json posts-new.json -r /
-$ npx firebasify categories.json categories-new.json -r /
+npx firebasify posts.json posts-new.json -r /
+npx firebasify categories.json categories-new.json -r /
 ```
 After that, add a object named `posts` in your database and import the `posts-new.json` into `posts`. Do the same things for `categories` too.
 
@@ -52,64 +52,6 @@ Finally, run app with `npm run dev` command.
 ## Learn More
 
 To learn more about **superplate**, please check out the [Documentation](https://github.com/pankod/superplate).
-
-
-### **antd**
-
-
-
-[Go To Documentation]()
-
-
-### **css**
-
-
-
-[Go To Documentation]()
-
-
-### **react-router-v6**
-
-
-
-[Go To Documentation]()
-
-
-### **custom-json-rest-data-provider**
-
-
-
-[Go To Documentation]()
-
-
-### **example-resource**
-
-
-
-[Go To Documentation]()
-
-
-### **no**
-
-
-
-[Go To Documentation]()
-
-
-### **no**
-
-
-
-[Go To Documentation]()
-
-
-### **no**
-
-
-
-[Go To Documentation]()
-
-
 
 ## License
 

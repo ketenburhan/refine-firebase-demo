@@ -7,10 +7,21 @@ import {
 } from "@pankod/refine-antd";
 import "@pankod/refine-antd/dist/styles.min.css";
 import routerProvider from "@pankod/refine-react-router-v6";
-import dataProvider from "@pankod/refine-simple-rest";
 import { PostList, PostCreate, PostEdit, PostShow } from "pages/posts";
+import {
+  FirebaseDataProvider,
+  FirebaseLiveProvider,
+} from "@ketenburhan/refine-firebase";
+import { firebaseApp } from "./firebaseConfig";
 
 function App() {
+  const firebaseDataProvider = new FirebaseDataProvider(
+    firebaseApp
+  ).getProvider();
+  const firebaseLiveProvider = new FirebaseLiveProvider(
+    firebaseApp
+  ).getProvider();
+
   return (
     <Refine
       notificationProvider={notificationProvider}
@@ -18,7 +29,9 @@ function App() {
       ReadyPage={ReadyPage}
       catchAll={<ErrorComponent />}
       routerProvider={routerProvider}
-      dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+      dataProvider={firebaseDataProvider}
+      liveProvider={firebaseLiveProvider}
+      liveMode="auto"
       resources={[
         {
           name: "posts",

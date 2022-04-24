@@ -11,13 +11,14 @@ import { PostList, PostCreate, PostEdit, PostShow } from "pages/posts";
 import {
   FirebaseDataProvider,
   FirebaseLiveProvider,
+  biggestIdPlusOneStrategyIndexing,
 } from "@ketenburhan/refine-firebase";
 import { firebaseApp } from "./firebaseConfig";
 
 function App() {
-  const firebaseDataProvider = new FirebaseDataProvider(
-    firebaseApp
-  ).getProvider();
+  const firebaseDataProvider = new FirebaseDataProvider(firebaseApp, {
+    getCreateId: biggestIdPlusOneStrategyIndexing,
+  }).getProvider();
   const firebaseLiveProvider = new FirebaseLiveProvider(
     firebaseApp
   ).getProvider();
